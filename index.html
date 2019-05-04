@@ -12,18 +12,31 @@
 
       function drawRegionsMap() {
        
-      var data = google.visualization.arrayToDataTable([
-        ['City',   'Population', 'Area'],
-        ['Berlin',      2761477,    1285.31],
-        ['Frankfurt',     1324110,    181.76],
-        ['Munich',    959574,     117.27],
-        ['Duesseldorf',     907563,     130.17]
+  var data = google.visualization.arrayToDataTable([
+                     ['State', 'Population', 'Area(km²)'],
+              ['DE-BW', 10569100, 35752],
+              ['DE-BY', 12519600, 70549],
+              ['DE-BE', 3375200, 892],
+              ['DE-BB', 2449500, 29477],
+              ['DE-HB', 654800, 404], 
+              ['DE-HH', 1734300, 755],
+              ['DE-HE', 6016500, 21115],
+              ['DE-MV', 1600300, 23174],
+              ['DE-NI', 7779000, 47618],
+              ['DE-NW', 17554300, 34043],
+              ['DE-RP', 3990300, 19847],
+              ['DE-SL', 994300, 2569],
+              ['DE-SN', 4050200, 18416],
+              ['DE-ST', 2259400, 20445],
+              ['DE-SH', 2806500, 15763],
+              ['DE-TH', 2170500, 16172]
       ]);
-
+       
       var options = {
         region: 'DE',
-        displayMode: 'markers',
-        colorAxis: {colors: ['green', 'blue']}
+resolution: "provinces",
+colorAxis: {colors: ['grey']}
+        };
       
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
