@@ -1,50 +1,43 @@
 <html>
   <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {
-        'packages':['geochart'],
-        // Note: you will need to get a mapsApiKey for your project.
-        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
-      });
-      google.charts.setOnLoadCallback(drawRegionsMap);
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type='text/javascript'>
+     google.charts.load('current', {
+       'packages': ['geochart'],
+       // Note: you will need to get a mapsApiKey for your project.
+       // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+       'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+     });
+     google.charts.setOnLoadCallback(drawMarkersMap);
 
-      function drawRegionsMap() {
-       
-  var data = google.visualization.arrayToDataTable([
-                     ['State', 'Population', 'Area(km²)'],
-              ['DE-BW', 10569100, 35752],
-              ['DE-BY', 12519600, 70549],
-              ['DE-BE', 3375200, 892],
-              ['DE-BB', 2449500, 29477],
-              ['DE-HB', 654800, 404], 
-              ['DE-HH', 1734300, 755],
-              ['DE-HE', 6016500, 21115],
-              ['DE-MV', 1600300, 23174],
-              ['DE-NI', 7779000, 47618],
-              ['DE-NW', 17554300, 34043],
-              ['DE-RP', 3990300, 19847],
-              ['DE-SL', 994300, 2569],
-              ['DE-SN', 4050200, 18416],
-              ['DE-ST', 2259400, 20445],
-              ['DE-SH', 2806500, 15763],
-              ['DE-TH', 2170500, 16172]
+      function drawMarkersMap() {
+      var data = google.visualization.arrayToDataTable([
+        ['City',   'Population', 'Area'],
+        ['Rome',      2761477,    1285.31],
+        ['Milan',     1324110,    181.76],
+        ['Naples',    959574,     117.27],
+        ['Turin',     907563,     130.17],
+        ['Palermo',   655875,     158.9],
+        ['Genoa',     607906,     243.60],
+        ['Bologna',   380181,     140.7],
+        ['Florence',  371282,     102.41],
+        ['Fiumicino', 67370,      213.44],
+        ['Anzio',     52192,      43.43],
+        ['Ciampino',  38262,      11]
       ]);
-       
-      var options = {
-        region: 'DE',
-resolution: "provinces",
-colorAxis: {colors: ['grey']}
-        };
-      
-        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
-        chart.draw(data, options);
+      var options = {
+        region: 'IT',
+        displayMode: 'markers',
+        colorAxis: {colors: ['green', 'blue']}
       };
+
+      var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    };
     </script>
   </head>
   <body>
-    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
   </body>
 </html>
